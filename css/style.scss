@@ -1,0 +1,226 @@
+$assentBackColor: #3f72af;
+$assentColor: #5a5a5a;
+$default: #000;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: $assentBackColor;
+  height: 100vh;
+}
+
+/*btns*/
+#btn_todo_del,
+#btn_todo,
+.btn_todo_edit {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+#btn_todo_del,
+.btn_todo_edit,
+.btn_todo_save {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-color: #e0e5ea;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  transition: opacity 0.2s ease-in;
+  opacity: 0.5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #e0e5ea;
+    opacity: 1;
+  }
+  &:active {
+    border: 2px solid #000;
+  }
+}
+/*btns*/
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.main_inner {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px 50px 85px;
+  border-radius: 16px;
+  box-shadow: 0 0 50px 2px rgba(1, 1, 1, 0.6);
+  margin-top: 80px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  h1 {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .func_bn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: start;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 15px;
+    #input_todo {
+      width: 100%;
+      padding: 13px 10px 14px;
+      font-weight: 400;
+      border: none;
+      outline: none;
+
+      background-color: #f3f3f3;
+      border-radius: 10px;
+
+      font-size: 18px;
+      &:focus,
+      #btn_todo:active {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+      &::placeholder {
+        font-size: 18px;
+        line-height: 22px;
+        color: $assentColor;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+      }
+    }
+  }
+  #todos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    // overflow-y: scroll;
+    p {
+      text-align: center;
+    }
+    .todo_task {
+      position: relative;
+
+      cursor: default;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+
+      padding: 10px;
+      border-radius: 5px;
+      .todos_item {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        color: $default;
+      }
+      .input_edit {
+        font-family: "Montserrat", sans-serif;
+        padding: 6px;
+        font-weight: 400;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        background-color: #f3f3f3;
+        border-radius: 5px;
+        color: $assentColor;
+        &:focus {
+          color: #111;
+          background-color: #fff;
+          border-color: #80bdff;
+          outline: none;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+      }
+      .input_edit {
+        display: none;
+      }
+      .btn_todo_edit,
+      #btn_todo_del,
+      .btn_todo_save {
+        position: absolute;
+        padding: 5px 5px;
+        font-size: 16px;
+        right: 50px;
+      }
+      #btn_todo_del {
+        right: 10px;
+      }
+      .btn_todo_save {
+        display: none;
+        width: 50px;
+        font-weight: 600;
+        &:active {
+          border: 2px solid #000;
+
+          background-color: #90ee90;
+        }
+      }
+    }
+    .todo_task_complete {
+      .todos_item {
+        text-decoration: line-through;
+        color: $assentColor;
+      }
+    }
+    .todo_checkbox {
+      input {
+        display: none;
+        &:checked + div::after {
+          display: block;
+        }
+      }
+      div {
+        cursor: pointer;
+        position: relative;
+        height: 28px;
+        width: 28px;
+        border: 1px solid $assentBackColor;
+        border-radius: 8px;
+        &::after {
+          display: none;
+          text-align: center;
+          content: "✔️";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

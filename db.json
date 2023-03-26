@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "Убраться в комнате",
+      "isDone": false,
+      "id": 1
+    },
+    {
+      "title": "Сделать ТЗ",
+      "isDone": true,
+      "id": 2
+    },
+    {
+      "title": "Сделать зарядку",
+      "isDone": false,
+      "id": 3
+    }
+  ]
+}
