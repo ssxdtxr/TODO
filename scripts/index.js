@@ -48,7 +48,7 @@ const drawTodos = (todos) => {
   });
 };
 
-//Изменение input
+
 const editTodo = (id) => {
   const inputEdit = document.getElementsByClassName("input_edit")[id - 1];
   const textItem = document.getElementsByClassName("todos_item")[id - 1];
@@ -63,7 +63,6 @@ const editTodo = (id) => {
   inputEdit.value = textItem.textContent.trim();
 };
 
-//Редактирование
 const saveTodo = async (id) => {
   const editTodo = document.getElementsByClassName("input_edit")[id - 1];
 
@@ -80,7 +79,6 @@ const saveTodo = async (id) => {
   });
 };
 
-//Удаление
 const deleteTodo = async (id) => {
   await fetch(`http://localhost:3000/posts/${id}`, {
     method: "DELETE",
@@ -90,7 +88,7 @@ const deleteTodo = async (id) => {
   });
 };
 
-//check
+
 const completeTodo = async (id) => {
   await fetch(`http://localhost:3000/posts/${id}`, {
     method: "PATCH",
@@ -103,7 +101,7 @@ const completeTodo = async (id) => {
   });
 };
 
-//Добавление
+
 const btnTodo = document.getElementById("btn_todo");
 btnTodo.onclick = async () => {
   const inputTodo = document.getElementById("input_todo");
@@ -119,7 +117,7 @@ btnTodo.onclick = async () => {
     method: "POST",
     body: JSON.stringify(todo),
     headers: {
-      "Content-type": "application/json; charset=UTF-8", // с этим будет работать
+      "Content-type": "application/json; charset=UTF-8", 
     },
   });
 };
