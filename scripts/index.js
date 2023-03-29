@@ -41,7 +41,7 @@ const drawTodos = (todos) => {
 							Save
 				</button>
         <button  id="btn_todo_del" onclick="deleteTodo(${item.id})">
-							<img src="./img/del.svg" width="18" height="18">
+							<img src="./img/delete.svg" width="18" height="18">
 				</button>
     </div>
     `;
